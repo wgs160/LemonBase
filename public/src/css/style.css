@@ -1,0 +1,36 @@
+/**
+ * @description :
+ * @author:15031493
+ * @update:2015/4/16.
+ */
+
+.ml20{margin-left: 20px;}
+.ml10{margin-left: 10px;}
+.plr10{ padding:0 10px;}
+.pa{position:absolute;}
+.pr{position:relative;}
+.wb{word-wrap:break-word;word-break:break-all;text-overflow:ellipsis;}
+
+.block{display: block!important;}
+.dib{display:inline-block!important;}
+.hide{display: none!important;}
+/* 微软雅黑 */
+.fwr{font:normal 12px/1.5 "Microsoft YaHei",serif;}
+.fmwr{font-family:"Microsoft YaHei",serif; }
+.fwr1{font:normal 1rem/1.5 "Microsoft YaHei",serif;}
+
+/* 宋体 */
+.fst{font:normal 12px/1.5 arial,tahoma,\5b8b\4f53 ;}
+.fmst{font-family:arial,tahoma,\5b8b\4f53 ; }
+/* 宋体 */
+.fst12{font:normal 1rem/1.5 arial,tahoma,\5b8b\4f53 ;}
+
+.wrapper{
+    margin: 20px;
+}
+.bs_block{
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+}
+
