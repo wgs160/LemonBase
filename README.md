@@ -1,14 +1,7 @@
 # lemon
 > vue+webpack+node+express+gulp+mysql基础库
 
-## webpack相关
-
-# webpack 热部署 localhost:8080
-npm run dev
-
-# 打包压缩
-npm run build
-```
+# 单独启动node服务后，进入client启动webpack热部署开发
 
 ## node环境相关
 
@@ -33,7 +26,7 @@ npm run build
 
 开发环境启动服务
 
-	supervisor -e js,html,css app
+	supervisor -e js ./bin/www
 
 
 ## 开发过程相关
