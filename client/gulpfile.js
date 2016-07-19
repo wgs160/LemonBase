@@ -1,7 +1,9 @@
 /**
  * Created by 15031493 on 2015/5/27.
+ * 弃用
  */
-var gulp = require('gulp');
+
+/*var gulp = require('gulp');
 var gutil = require("gulp-util");
 var webpack = require("webpack");
 var WebpackDevServer = require("webpack-dev-server");
@@ -15,7 +17,7 @@ var lessPath = "src/less";
 
 //编译less
 gulp.task('less', function () {
-    gulp.src([lessPath+'/base.less',lessPath+'/lemon.less',lessPath+'/*.less'])
+    gulp.src([lessPath+'/base.less',lessPath+'/lemon.less',lessPath+'/!*.less'])
         .pipe(less())
         .pipe(concat("lemon.css"))
         .pipe(autoprefixer({
@@ -32,7 +34,7 @@ gulp.task('less', function () {
 
 //启动热部署监视less
 gulp.task('watch', ["less","webpack-dev-server"], function () {
-    gulp.watch(lessPath+'/*.less', ['less']);
+    gulp.watch(lessPath+'/!*.less', ['less']);
 })
 
 // The development server (the recommended option for development)
@@ -44,7 +46,8 @@ gulp.task("webpack-dev-server", function(callback) {
     var myConfig = Object.create(webpackConfig);
     myConfig.devtool = "eval";
     myConfig.debug = true;
-    myConfig.entry.unshift('webpack-dev-server/client?http://localhost:8080', "webpack/hot/dev-server");
+    //不用命令行，用gulp启动需要配置hot插件和入口热部署配置
+    myConfig.entry.app.unshift('webpack-dev-server/client?http://localhost:8080', "webpack/hot/dev-server");
     myConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
 
 
@@ -63,7 +66,7 @@ gulp.task("webpack-dev-server", function(callback) {
             if(err) throw new gutil.PluginError("webpack-dev-server", err);
             gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
         });
-});
+});*/
 /*
 
 // 开发build 并监听

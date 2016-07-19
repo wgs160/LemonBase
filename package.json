@@ -3,6 +3,9 @@
   "description": "",
   "author": "qgn",
   "scripts": {
+    "hot": "webpack-dev-server --inline --hot",
+    "dev": "webpack --progress --hide-modules",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules --config webpack.config.prd.js",
     "start": "node ./server/bin/www",
     "go": "supervisor -e js,html ./server/bin/www"
   },
@@ -14,12 +17,11 @@
     "ejs": "^2.4.2",
     "express": "^4.14.0",
     "express-session": "^1.13.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "moment": "^2.13.0",
     "morgan": "^1.7.0",
     "mysql": "^2.11.1",
-    "serve-favicon": "^2.3.0",
-    "vue": "^1.0.0",
-    "vue-router": "^0.7.13"
+    "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -30,19 +32,17 @@
     "cross-env": "^1.0.6",
     "css-loader": "^0.23.0",
     "file-loader": "^0.8.4",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-clean-css": "^2.0.11",
-    "gulp-concat": "^2.6.0",
-    "gulp-less": "^3.1.0",
-    "gulp-util": "^3.0.7",
+    "html-webpack-plugin": "^2.22.0",
     "json-loader": "^0.5.4",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
+    "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
+    "vue": "^1.0.0",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
     "vue-loader": "^8.2.1",
+    "vue-router": "^0.7.13",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.0"
