@@ -3,24 +3,24 @@ var webpack = require('webpack')
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlwebpackPlugin = require("html-webpack-plugin");
 
-//Ô´ÂëµØÖ·
+//æºç åœ°å€
 var SRC_PATH = path.resolve(__dirname, './client/src');
-//±àÒëµØÖ·
+//ç¼–è¯‘åœ°å€
 var DIST_PATH = path.resolve(__dirname, './client/dist');
 
-//´æ·Å¹«¹²css
+//å­˜æ”¾å…¬å…±css
 var libCss = new ExtractTextPlugin("./css/lib.css");
-//´æ·ÅÏîÄ¿css
+//å­˜æ”¾é¡¹ç›®css
 var lemonCss = new ExtractTextPlugin("./css/lemon.[hash].css");
 
 module.exports = {
   entry:{
     app:[SRC_PATH+'/main.js'],
-    vendors: ['vue','vue-router'] //µ¥¶À·ÖÀëµÄ¿â
+    vendors: ['vue','vue-router'] //å•ç‹¬åˆ†ç¦»çš„åº“
   } ,
   output: {
     path:DIST_PATH,
-    //publicPath: '/dist/', //Ìæ»»pathµÄµØÖ·
+    //publicPath: '/dist/', //æ›¿æ¢pathçš„åœ°å€
     filename: '/js/[name].[hash].js'
   },
   module: {
@@ -33,14 +33,14 @@ module.exports = {
       {test:/\.html$/,loader:'vue-html'},
       {test: /\.(png|jpg|gif)$/, loader: 'url',
         query: {
-          limit: 10000,//Ğ¡ÓÚ8kÓÃbase64,²»Ğ´Õâ¸ö²ÎÊı¾Í»á±»Ö±½ÓÊä³ö
+          limit: 10000,//å°äº8kç”¨base64,ä¸å†™è¿™ä¸ªå‚æ•°å°±ä¼šè¢«ç›´æ¥è¾“å‡º
           name: 'images/[name].[ext]?[hash]'
         }
       }
       ,
       {test:/\.(woff|woff2|svg|eot|ttf)$/,loader:'url',
         query:{
-            limit: 10000,//Ğ¡ÓÚ8kÓÃbase64
+            limit: 10000,//å°äº8kç”¨base64
             name:'font/[name].[ext]?[hash]'
         }
       }
@@ -49,7 +49,7 @@ module.exports = {
   devtool: '#cheap-source-map',
 
   resolve: {
-    //root:  path.resolve('./public/'), //¾ø¶ÔÂ·¾¶
+    //root:  path.resolve('./public/'), //ç»å¯¹è·¯å¾„
     extensions: ['', '.js', '.css','.json','.vue','.less'],
     modulesDirectories: [
       'node_modules'
@@ -58,27 +58,26 @@ module.exports = {
       //mPath : 'js/actions/AppAction.js'
     }
   },
-  //Íâ²¿cdnÒıÓÃÔÚrequireÊ±µÄ±ğÃû
+  //å¤–éƒ¨cdnå¼•ç”¨åœ¨requireæ—¶çš„åˆ«å
   externals: {
     jquery: "jQuery"
   },
   plugins: [
-/*    new webpack.ProvidePlugin({//¹ÒÔØ±äÁ¿µ½È«¾ÖµÄ²å¼ş,key¶ÔÓ¦µÄvalÊÇ¿ÉÒÔÎªÄ£¿éÃû»òaliasµÄ±ğÃûµØÖ·
+/*    new webpack.ProvidePlugin({//æŒ‚è½½å˜é‡åˆ°å…¨å±€çš„æ’ä»¶,keyå¯¹åº”çš„valæ˜¯å¯ä»¥ä¸ºæ¨¡å—åæˆ–aliasçš„åˆ«ååœ°å€
       // Automtically detect jQuery and $ as free var in modules
       // and inject the jquery library
       // This is required by many jquery plugins
       jQuery: "jquery",
       $: "jquery"
     })*/
-
-    //°ÑÈë¿ÚÎÄ¼şÀïÃæµÄÊı×é´ò°ü³Éverdors.js
+    //æŠŠå…¥å£æ–‡ä»¶é‡Œé¢çš„æ•°ç»„æ‰“åŒ…æˆverdors.js
     new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
-      //¶ÀÁ¢cssÎÄ¼ş
-    libCss,lemonCss,
-      //¶Ô×Ô¶¨ÒåÄ£°åÔØÈëÄ£¿é
-    new HtmlwebpackPlugin({
-      template: './client/index.html',
-      //chunksÕâ¸ö²ÎÊı¸æËß²å¼şÒªÒıÓÃentryÀïÃæµÄÄÄ¼¸¸öÈë¿Ú
+      //ç‹¬ç«‹cssæ–‡ä»¶
+      libCss,lemonCss,
+      //å¯¹è‡ªå®šä¹‰æ¨¡æ¿è½½å…¥æ¨¡å—
+      new HtmlwebpackPlugin({
+        template: './client/index.html',
+      //chunksè¿™ä¸ªå‚æ•°å‘Šè¯‰æ’ä»¶è¦å¼•ç”¨entryé‡Œé¢çš„å“ªå‡ ä¸ªå…¥å£
       chunks: ['app', 'vendors'],
       inject: 'body'
     })
@@ -86,6 +85,6 @@ module.exports = {
 }
 
 /*
-if (process.env.NODE_ENV === 'production') {
-}
-*/
+ if (process.env.NODE_ENV === 'production') {
+ }
+ */

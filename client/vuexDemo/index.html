@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <app></app>
+</body>
+<script>
+    //range 范围 用-表示范围，多个用","分开，每次递增的值需跟:后面,默认为5,例 range = "0-40:10,60"
+    function rangeChange(range){
+        //      var range ='0,10 - 40';
+        var _x =   5;
+        var array = [];
+        range.split(",").forEach(function (item) {
+
+            if(item.indexOf(":") > -1){
+                var rangeAndX = item.split(":");
+                _x =  Number(rangeAndX[1]);
+                item = rangeAndX[0];
+            }
+
+            if(item.indexOf("-") > -1){
+                var _range = item.split("-"),
+                        start = Number(_range[0].trim()),
+                        end =  Number(_range[1].trim());
+                var _arr = [];
+                while(start + _x <= end){
+                    _arr.push(start.toString());
+                    start += _x;
+                }
+                _arr.push(end.toString());
+                array = array.concat(_arr);
+            }else{
+                array.push(item);
+            }
+        });
+        //     console.log(array);
+        return array;
+    }
+
+    var Store = {
+        curMode:{
+            id:4,
+            temperature:"40",
+            washingTAry:[]
+        },
+        washerMode:[
+            {
+                'id': '4',
+                'washingTAry':{
+                    0:{
+                        val:"20",
+                        range:'0 - 40'
+                    },
+                    '30':{
+                        val:"30",
+                        range:'0,10 - 40'
+                    },
+                    '40':{
+                        val:"40",
+                        range:'0,40'
+                    },
+                    '50':{
+                        val:"40",
+                        range:'0-40,50-90:10,110'
+                    }
+                }
+            },
+        ]
+    };
+
+
+    Store.washerMode.forEach(function(_obj){
+        if(_obj.id == Store.curMode.id){
+            //当前温度
+            if(_obj.washingTAry.hasOwnProperty(Store.curMode.temperature)){
+                //洗涤时间范围
+                var range = _obj.washingTAry[Store.curMode.temperature].range;
+                Store.curMode.washingTAry = rangeChange(range);
+            }
+        }
+      }
+    )
+    console.log(Store.curMode.washingTAry);
+</script>
+</html>

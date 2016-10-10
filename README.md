@@ -3,10 +3,6 @@
 
 ## webpack相关
 
-# 用gulp启动less监听和热部署
-gulp watch
-
-## 暂时弃用
 # webpack 热部署 localhost:8080
 npm run hot
 
@@ -18,22 +14,20 @@ npm run build
 
 ## node环境相关
 
-下载安装 node.js， Linux需要编译安装，过程略。下载地址：http://nodejs.org/download/
-
-
 设置代理 
 
-	npm config set proxy=http://10.19.110.31:8080
-	npm config set https-proxy=http://10.19.110.31:8080
+	npm config set proxy=http://
+	npm config set https-proxy=http://
 
 安装开发环境必须的全局模块	
 
-	npm install supervisor -g
+	npm install supervisor -g 
+	or
 	npm install forever -g
 
 添加环境变量
 
-	NODE_ENV=prd 或 pre 或 sit
+	NODE_ENV = prd 或 pre
 
 *开发环境可以不添加该环境变量，默认为dev*
 
@@ -43,10 +37,6 @@ npm run build
 
 
 ## 开发过程相关
-
-安装
-npm install body-parser cookie-parser express serve-favicon express-session morgan mysql moment --save
-
 
 在控制器内如何获取传递的各类参数
 
@@ -81,4 +71,9 @@ npm install body-parser cookie-parser express serve-favicon express-session morg
 	
 	req.session.destroy(function(){});  // 清空 session
 	req.session.destroy(key, function(){});  // 删除单个 session
+	
+	
+## 暂时弃用
+# 用gulp启动less监听和热部署
+gulp watch
 
