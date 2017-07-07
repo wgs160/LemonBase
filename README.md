@@ -1,79 +1,81 @@
+# ç›¸å…³ç‰ˆæœ¬è¿‡äºè€æ—§ï¼ŒåºŸå¼ƒå¾…é‡æ„
+
 # lemon
-> vue+webpack+node+express+gulp+mysql»ù´¡¿â
+> vue+webpack+node+express+gulp+mysqlåŸºç¡€åº“
 
-## webpackÏà¹Ø
+## webpackç›¸å…³
 
-# webpack ÈÈ²¿Êğ localhost:8080
+# webpack çƒ­éƒ¨ç½² localhost:8080
 npm run hot
 
-# ´ò°üÑ¹Ëõ
+# æ‰“åŒ…å‹ç¼©
 npm run build
 ```
 
-# µ¥¶ÀÆô¶¯node·şÎñºó£¬½øÈëclientÆô¶¯webpackÈÈ²¿Êğ¿ª·¢
+# å•ç‹¬å¯åŠ¨nodeæœåŠ¡åï¼Œè¿›å…¥clientå¯åŠ¨webpackçƒ­éƒ¨ç½²å¼€å‘
 
-## node»·¾³Ïà¹Ø
+## nodeç¯å¢ƒç›¸å…³
 
-ÉèÖÃ´úÀí 
+è®¾ç½®ä»£ç† 
 
 	npm config set proxy=http://
 	npm config set https-proxy=http://
 
-°²×°¿ª·¢»·¾³±ØĞëµÄÈ«¾ÖÄ£¿é	
+å®‰è£…å¼€å‘ç¯å¢ƒå¿…é¡»çš„å…¨å±€æ¨¡å—	
 
 	npm install supervisor -g 
 	or
 	npm install forever -g
 
-Ìí¼Ó»·¾³±äÁ¿
+æ·»åŠ ç¯å¢ƒå˜é‡
 
-	NODE_ENV = prd »ò pre
+	NODE_ENV = prd æˆ– pre
 
-*¿ª·¢»·¾³¿ÉÒÔ²»Ìí¼Ó¸Ã»·¾³±äÁ¿£¬Ä¬ÈÏÎªdev*
+*å¼€å‘ç¯å¢ƒå¯ä»¥ä¸æ·»åŠ è¯¥ç¯å¢ƒå˜é‡ï¼Œé»˜è®¤ä¸ºdev*
 
-¿ª·¢»·¾³Æô¶¯·şÎñ
+å¼€å‘ç¯å¢ƒå¯åŠ¨æœåŠ¡
 
 	supervisor -e js ./bin/www
 
 
-## ¿ª·¢¹ı³ÌÏà¹Ø
+## å¼€å‘è¿‡ç¨‹ç›¸å…³
 
-ÔÚ¿ØÖÆÆ÷ÄÚÈçºÎ»ñÈ¡´«µİµÄ¸÷Àà²ÎÊı
+åœ¨æ§åˆ¶å™¨å†…å¦‚ä½•è·å–ä¼ é€’çš„å„ç±»å‚æ•°
 
-	Â·ÓÉ´«µİµÄ²ÎÊı£ºreq.params
-	postµÄ²ÎÊı£ºreq.body
-	getµÄ²ÎÊı£ºreq.query
+	è·¯ç”±ä¼ é€’çš„å‚æ•°ï¼šreq.params
+	postçš„å‚æ•°ï¼šreq.body
+	getçš„å‚æ•°ï¼šreq.query
 
-ÉèÖÃ cookie
+è®¾ç½® cookie
 
 	res.cookie('name', 'tobi', { path: '/', expires: new Date(Date.now() + 900000), httpOnly: true });
-	res.cookie('name', 'tobi', { signed: true }); // ÉèÖÃÇ©ÃûµÄcookie£¬·ÀÖ¹¿Í»§¶Ë´Û¸Ä
+	res.cookie('name', 'tobi', { signed: true }); // è®¾ç½®ç­¾åçš„cookieï¼Œé˜²æ­¢å®¢æˆ·ç«¯ç¯¡æ”¹
 
 
-¶ÁÈ¡ cookie
+è¯»å– cookie
 
 	req.cookies.name;
 	req.signedCookies.name;
 
-É¾³ı cookie
+åˆ é™¤ cookie
 
 	res.clearCookie('name', { path: '/' });
 
-ÉèÖÃ session
+è®¾ç½® session
 
 	req.session.user = {name : 'pangnate'};
 
-¶ÁÈ¡ session
+è¯»å– session
 
 	req.session.user;
 
-É¾³ı session
+åˆ é™¤ session
 	
-	req.session.destroy(function(){});  // Çå¿Õ session
-	req.session.destroy(key, function(){});  // É¾³ıµ¥¸ö session
+	req.session.destroy(function(){});  // æ¸…ç©º session
+	req.session.destroy(key, function(){});  // åˆ é™¤å•ä¸ª session
 	
 	
-## ÔİÊ±ÆúÓÃ
-# ÓÃgulpÆô¶¯less¼àÌıºÍÈÈ²¿Êğ
+## æš‚æ—¶å¼ƒç”¨
+# ç”¨gulpå¯åŠ¨lessç›‘å¬å’Œçƒ­éƒ¨ç½²
 gulp watch
 
